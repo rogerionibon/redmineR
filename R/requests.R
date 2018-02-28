@@ -5,7 +5,6 @@ redmine_request <- function(type = c("GET", "POST", "PUT", "DELETE"),
     url = redmine_url(), token = redmine_token(), ...) {
   
   type <- match.arg(type)
-  
   endpoint <- gsub("\\.xml$", ".json", endpoint)
   if (!grepl("\\.json$", endpoint))
     endpoint <- paste0(endpoint, ".json")

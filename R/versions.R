@@ -27,3 +27,18 @@ redmine_create_version <- function(project_id, name, description = NULL, status 
 redmine_list_versions = function (project_id) {
   redmine_get(paste0("/projects/",project_id,"/versions"), query = NULL)
 }
+
+
+#' Show versiont information
+#' 
+#' @param version_id Version id 
+#' @return a \code{redminer} object with version information
+#' @author Felipe Dias
+#' @seealso \code{\link{redmine_search_id}} to search for id by subject
+#' @examples \dontrun{
+#' }
+#' @export
+redmine_show_version = function (version_id) {
+  endpoint = paste0("versions/", version_id, ".json")
+  redmine_get(endpoint = endpoint)
+}
